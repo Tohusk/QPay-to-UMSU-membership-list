@@ -19,7 +19,7 @@ with open(membership_list, 'r') as membership_csv:
 
         #TODO need more complex algorithm for people with more names
         first = row[NAME_COLUMN].split()[0]
-        last = row[NAME_COLUMN].split()[1]
+        last = row[NAME_COLUMN].split()[-1]
         new_csv_dict["First Name"].append(first)
         new_csv_dict["Last Name"].append(last)
 
