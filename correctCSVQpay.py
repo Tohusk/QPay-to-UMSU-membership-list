@@ -23,7 +23,11 @@ with open(membership_list, 'r') as membership_csv:
         new_csv_dict["First Name"].append(first)
         new_csv_dict["Last Name"].append(last)
 
-        new_csv_dict["Student Number"].append(row[STUDENT_NUMBER_COLUMN])
+        # If left blank will fill in NA for student number
+        if row[STUDENT_NUMBER_COLUMN] == "":
+            new_csv_dict["Student Number"].append("NA")
+        else:
+            new_csv_dict["Student Number"].append(row[STUDENT_NUMBER_COLUMN])
 
         new_csv_dict["UniMelb Course"].append(row[COURSE_COLUMN])
 
