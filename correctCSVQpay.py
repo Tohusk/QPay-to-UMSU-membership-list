@@ -8,6 +8,8 @@ INTERNATIONAL_COLUMN = 8
 GRADUATE_COLUMN = 10
 AGE_COLUMN = 7
 
+#TODO add try excepts
+
 membership_list = input("Enter the qpay membership list csv file: \n")
 with open(membership_list, 'r') as membership_csv:
     csvreader = csv.reader(membership_csv)
@@ -23,8 +25,8 @@ with open(membership_list, 'r') as membership_csv:
         new_csv_dict["First Name"].append(first)
         new_csv_dict["Last Name"].append(last)
 
-        # If left blank will fill in NA for student number
-        if row[STUDENT_NUMBER_COLUMN] == "":
+        # If not numeric, then input NA
+        if not row[STUDENT_NUMBER_COLUMN].isnumeric():
             new_csv_dict["Student Number"].append("NA")
         else:
             new_csv_dict["Student Number"].append(row[STUDENT_NUMBER_COLUMN])
