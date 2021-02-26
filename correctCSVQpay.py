@@ -17,8 +17,8 @@ with open(membership_list, 'r') as membership_csv:
     next(membership_csv)
     for row in csvreader:
 
-        #TODO need more complex algorithm for people with more names
-        first = row[NAME_COLUMN].split()[0]
+        # middle names go into first name
+        first = " ".join(row[NAME_COLUMN].split()[:-1])
         last = row[NAME_COLUMN].split()[-1]
         new_csv_dict["First Name"].append(first)
         new_csv_dict["Last Name"].append(last)
